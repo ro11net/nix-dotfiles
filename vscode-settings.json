@@ -1,0 +1,8 @@
+{
+  "editor.tabSize": 2,
+  "editor.formatOnSave": true,
+  "files.trimTrailingWhitespace": true,
+  "terminal.integrated.fontSize": 14,
+  "files.autoSave": "onWindowChange",
+  "files.autoSaveDelay": 1000
+}

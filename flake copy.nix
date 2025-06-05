@@ -49,9 +49,9 @@
       system.defaults = {
         dock.autohide = true;
         dock.persistent-apps = [
-          "/System/Applications/Launchpad.app"
           "/Applications/Firefox.app"
           "/Applications/Gather.app"
+          "/Applications/Launchpad.app"
           "${pkgs.obsidian}/Applications/Obsidian.app"
           "${pkgs.vscode}/Applications/Visual Studio Code.app"
           "/System/Applications/Mail.app"
