@@ -11,82 +11,64 @@
   outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew }:
   let
     configuration = { pkgs, ... }: {
-      # List packages installed in system profile. To search by name, run:
-      # $ nix-env -qaP | grep wget
-      environment.systemPackages = with pkgs;
-        [ 
-          neovim
-          vscode
-          obsidian
-        ];
 
-      homebrew = {
-        enable = true;
-        brews = [
-          "mas"
-        ];
-        casks = [
-          "hammerspoon"
-          "firefox"
-          "iina"
-          "the-unarchiver"
-        ];
-        masApps = {
-          "Slack" = 803453959;
-        };
-        onActivation.cleanup = "zap";
-        onActivation.autoUpdate = true;
-        onActivation.upgrade = true;
-      };
-
+      # Allow unfree packages
       nixpkgs.config.allowUnfree = true;
 
-      # System Defaults
+      # System defaults configuration
       system.defaults = {
         dock.autohide = true;
         dock.persistent-apps = [
+          "/System/Applications/Launchpad.app"
           "/Applications/Firefox.app"
-          "${pksgs.obsidian}/Applications/Obsidian.app
+          "/Applications/Gather.app"
+          "${pkgs.obsidian}/Applications/Obsidian.app"
+          "${pkgs.vscode}/Applications/Visual Studio Code.app"
           "/System/Applications/Mail.app"
           "/System/Applications/Calendar.app"
         ];
+        finder.FXPreferredViewStyle = "clmv";
+        NSGlobalDomain.AppleICUForce24HourTime = true;
+        NSGlobalDomain.AppleInterfaceStyle = "Dark";
       };
 
-      # Necessary for using flakes on this system.
+      # Necessary for using flakes on this system
       nix.settings.experimental-features = "nix-command flakes";
 
-      # Enable alternative shell support in nix-darwin.
-      # programs.fish.enable = true;
-	    programs.zsh.enable = true;
+      # Enable Zsh shell
+      programs.zsh.enable = true;
 
-      # Set Git commit hash for darwin-version.
+      # Set Git commit hash for darwin-version
       system.configurationRevision = self.rev or self.dirtyRev or null;
 
-      # Used for backwards compatibility, please read the changelog before changing.
-      # $ darwin-rebuild changelog
+      # Compatibility for old versions
       system.stateVersion = 6;
+
+      # Set primary user
       system.primaryUser = "christianrolland";
 
-      # The platform the configuration will be used on.
+      # Platform configuration (Apple Silicon)
       nixpkgs.hostPlatform = "aarch64-darwin";
     };
   in
   {
-    # Build darwin flake using:
-    # $ darwin-rebuild build --flake .#Christians-MacBook-Pro
     darwinConfigurations."Christians-MacBook-Pro" = nix-darwin.lib.darwinSystem {
+      system = "aarch-darwin";
       modules = [
         configuration
+        ./packages/darwin.nix
         nix-homebrew.darwinModules.nix-homebrew
-        {
-          nix-homebrew = {
-            enable = true;
-            # Apple Silicon only
-            enableRosetta = true;
-            user = "christianrolland";
-          };
-        }
+          {
+            nix-homebrew = {
+              enable = true;
+              # Apple Silicon only
+              enableRosetta = true;
+              user = "christianrolland";
+            };
+          }
+          # users.users.christianrolland.home = "/Users/christianrolland";
       ];
+      # specialArgs = { inherit inputs; };
     };
   };
 }
