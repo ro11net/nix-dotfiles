@@ -8,16 +8,16 @@ compinit
 source <(kubectl completion zsh)
 complete -C '/usr/local/bin/aws_completer' aws
 
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-bindkey '^w' autosuggest-execute
-bindkey '^e' autosuggest-accept
-bindkey '^u' autosuggest-toggle
-bindkey '^L' vi-forward-word
-bindkey '^k' up-line-or-search
-bindkey '^j' down-line-or-search
+# source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# bindkey '^w' autosuggest-execute
+# bindkey '^e' autosuggest-accept
+# bindkey '^u' autosuggest-toggle
+# bindkey '^L' vi-forward-word
+# bindkey '^k' up-line-or-search
+# bindkey '^j' down-line-or-search
 
-eval "$(starship init zsh)"
-export STARSHIP_CONFIG=~/.config/starship/starship.toml
+# eval "$(starship init zsh)"
+# export STARSHIP_CONFIG=~/.config/starship/starship.toml
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
@@ -151,6 +151,6 @@ fv() { nvim "$(find . -type f -not -path '*/.*' | fzf)" }
 
 export XDG_CONFIG_HOME="/Users/christianrolland/.config"
 
-eval "$(zoxide init zsh)"
-eval "$(atuin init zsh)"
+# eval "$(zoxide init zsh)"
+# eval "$(atuin init zsh)"
 eval "$(direnv hook zsh)"

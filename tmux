@@ -1,0 +1,1 @@
+/nix/store/29wwbrabh7agbhz84nq6z0da8w4d3hsr-home-manager-files/.config/tmux
