@@ -317,4 +317,4 @@ theme "catppuccin-mocha"
 
 // The folder in which Zellij will look for themes
 //
-theme_dir "/Users/crolland/dotfiles/zellij/themes"
+theme_dir "/Users/christianrolland/dotfiles/zellij/themes"

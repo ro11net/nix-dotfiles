@@ -4,8 +4,8 @@
 { config, pkgs, ... }:
 
 {
-  home.username = "crolland";
-  home.homeDirectory = "/Users/crolland";
+  home.username = "christianrolland";
+  home.homeDirectory = "/Users/christianrolland";
   home.stateVersion = "23.05"; # Please read the comment before changing.
 
 # Makes sense for user specific applications that shouldn't be available system-wide

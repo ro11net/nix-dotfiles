@@ -98,7 +98,7 @@ use std "path add"
 # $env.PATH = ($env.PATH | uniq)
 path add /opt/homebrew/bin
 path add /run/current-system/sw/bin
-path add /Users/crolland/.local/bin
+path add /Users/christianrolland/.local/bin
 
 # To load from a custom file you can use:
 # source ($nu.default-config-dir | path join 'custom.nu')
@@ -107,8 +107,8 @@ mkdir ~/.cache/starship
 starship init nu | save -f ~/.cache/starship/init.nu
 zoxide init nushell | save -f ~/.zoxide.nu
 
-$env.STARSHIP_CONFIG = /Users/crolland/.config/starship/starship.toml
-$env.NIX_CONF_DIR = /Users/crolland/.config/nix
+$env.STARSHIP_CONFIG = /Users/christianrolland/.config/starship/starship.toml
+$env.NIX_CONF_DIR = /Users/christianrolland/.config/nix
 $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense' # optional
 mkdir ~/.cache/carapace
 carapace _carapace nushell | save --force ~/.cache/carapace/init.nu

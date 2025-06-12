@@ -14,6 +14,10 @@
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager }:
   let
+
+    # Enable Zsh shell
+    programs.zsh.enable = true;
+
     configuration = { pkgs, ... }: {
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
@@ -34,11 +38,12 @@
       nixpkgs.hostPlatform = "aarch64-darwin";
       # security.pam.enableSudoTouchIdAuth = true;
 
-      users.users.crolland.home = "/Users/crolland";
+      users.users.christianrolland.home = "/Users/christianrolland";
       home-manager.backupFileExtension = "backup";
       # nix.configureBuildUsers = true;
       # nix.useDaemon = true;
-      system.primaryUser = "crolland";
+      ids.gids.nixbld = 350;
+      system.primaryUser = "christianrolland";
       system.defaults = {
         dock.autohide = true;
         dock.mru-spaces = false;
@@ -76,19 +81,19 @@
     };
   in
   {
-    darwinConfigurations."MacBook-Pro" = nix-darwin.lib.darwinSystem {
+    darwinConfigurations."Christians-MacBook-Pro" = nix-darwin.lib.darwinSystem {
       system = "aarch64-darwin";
       modules = [
 	configuration
         home-manager.darwinModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.crolland = import ./home.nix;
+          home-manager.users.christianrolland = import ./home.nix;
         }
       ];
     };
 
     # Expose the package set, including overlays, for convenience.
-    darwinPackages = self.darwinConfigurations."MacBook-Pro".pkgs;
+    darwinPackages = self.darwinConfigurations."Christians-MacBook-Pro".pkgs;
   };
 }
