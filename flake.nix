@@ -30,7 +30,7 @@
           nushell
           carapace
           # neovim
-          vscode
+          # vscode
           obsidian
           google-chrome
           brave
@@ -70,6 +70,7 @@
           "/Applications/Gather.app"
           "${pkgs.obsidian}/Applications/Obsidian.app"
           "${pkgs.vscode}/Applications/Visual Studio Code.app"
+          "/Applications/kitty.app"
           "/System/Applications/Mail.app"
           "/System/Applications/Calendar.app"
         ];
@@ -104,6 +105,7 @@
           "zoom"
           "appgate-sdp-client"
           "adobe-acrobat-reader"
+          "visual-studio-code"
           # "google-chrome"
         #   "iina"
         #   "the-unarchiver"
