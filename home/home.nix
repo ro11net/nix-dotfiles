@@ -21,7 +21,7 @@
     # ".config/starship".source = ~/dotfiles/starship;
     # ".config/zellij".source = ~/dotfiles/zellij;
     ".config/nvim".source = ./nvim;
-    # ".config/nix".source = /Users/christianrolland/nix-dotfiles/nix;
+    ".config/nix".source = ./nix;
     # ".config/nix-darwin".source = /Users/christianrolland/nix-dotfiles/nix-darwin;
     ".config/tmux".source = ./tmux;
     # ".config/ghostty".source = ~/dotfiles/ghostty;
