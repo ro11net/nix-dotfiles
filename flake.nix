@@ -29,14 +29,14 @@
           glow
           nushell
           carapace
-          # neovim
+          neovim
           vscode
           obsidian
           google-chrome
           brave
           direnv
           kubectl
-          # tmux
+          tmux
         ];
       # services.nix-daemon.enable = true;
       nix.settings.experimental-features = "nix-command flakes";
