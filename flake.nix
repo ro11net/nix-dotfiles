@@ -29,6 +29,14 @@
           glow
           nushell
           carapace
+          neovim
+          vscode
+          obsidian
+          google-chrome
+          brave
+          direnv
+          kubectl
+          tmux
         ];
       # services.nix-daemon.enable = true;
       nix.settings.experimental-features = "nix-command flakes";
@@ -44,14 +52,28 @@
       # nix.useDaemon = true;
       ids.gids.nixbld = 350;
       system.primaryUser = "christianrolland";
+
+
+      # Allow unfree packages
+      nixpkgs.config.allowUnfree = true;
+
       system.defaults = {
         dock.autohide = true;
         dock.mru-spaces = false;
         finder.AppleShowAllExtensions = true;
         finder.FXPreferredViewStyle = "clmv";
-        loginwindow.LoginwindowText = "devops-toolbox";
+        dock.persistent-apps = [
+          "/System/Applications/Launchpad.app"
+          "/Applications/Firefox.app"
+          "/Applications/Gather.app"
+          "${pkgs.obsidian}/Applications/Obsidian.app"
+          "${pkgs.vscode}/Applications/Visual Studio Code.app"
+          "/System/Applications/Mail.app"
+          "/System/Applications/Calendar.app"
+        ];
+        # loginwindow.LoginwindowText = "devops-toolbox";
         screencapture.location = "~/Pictures/screenshots";
-        screensaver.askForPasswordDelay = 10;
+        # screensaver.askForPasswordDelay = 10;
       };
 
       # Homebrew packages
