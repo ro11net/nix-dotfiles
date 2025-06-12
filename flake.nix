@@ -29,14 +29,14 @@
           glow
           nushell
           carapace
-          neovim
+          # neovim
           vscode
           obsidian
           google-chrome
           brave
           direnv
           kubectl
-          tmux
+          # tmux
         ];
       # services.nix-daemon.enable = true;
       nix.settings.experimental-features = "nix-command flakes";
@@ -64,6 +64,8 @@
         finder.FXPreferredViewStyle = "clmv";
         dock.persistent-apps = [
           "/System/Applications/Launchpad.app"
+          "/Applications/Spotify.app"
+          "/Applications/Slack.app"
           "/Applications/Firefox.app"
           "/Applications/Gather.app"
           "${pkgs.obsidian}/Applications/Obsidian.app"
@@ -86,13 +88,67 @@
         #   "hammerspoon"
           "firefox"
           "wireshark"
+          "bitwarden"
+          "docker"
+          "font-fira-code"
+          "font-fira-code-nerd-font"
+          "font-victor-mono-nerd-font"
+          "font-roboto-mono-nerd-font"
+          "gather"
+          "google-chrome"
+          "google-drive"
+          "kitty"
+          "slack"
+          "spotify"
+          "sf-symbols"
+          "zoom"
+          "appgate-sdp-client"
+          "adobe-acrobat-reader"
           # "google-chrome"
         #   "iina"
         #   "the-unarchiver"
         ];
         brews = [
           "imagemagick"
+          "asdf"
+          "bat"
+          "bitwarden-cli"
+          "bash"
+          "curl"
+          "direnv"
+          "eza"
+          "fzf"
+          "git"
+          "glab"
+          "glow"
+          "imagemagick"
+          "jq"
+          "jp2a"
+          "k9s"
+          "mpv"
+          "neofetch"
+          # "nightlight"
+          "nnn"
+          "pastel"
+          "poppler"
+          "ripgrep"
+          # "skhd"
+          # "sketchybar"
+          "spotify_player"
+          "starship"
+          "tmux"
+          "tmuxinator"
+          "trash-cli"
+          "zsh"
+          "nvim"
         ];
+        taps = [
+          "koekeishiya/formulae"
+          "smudge/smudge"
+          # "homebrew/cask-fonts"
+          "FelixKratz/formulae"
+        ];
+
         # masApps = {
         #   "Slack" = 803453959;
         # };
