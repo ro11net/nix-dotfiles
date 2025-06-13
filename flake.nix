@@ -40,7 +40,7 @@
           python3
           age
           dive
-          flux
+          # flux
           nodejs
           pulumi
           sops
@@ -82,6 +82,8 @@
           "/Applications/Spotify.app"
           "/Applications/Slack.app"
           "/Applications/Firefox.app"
+          "${pkgs.brave}/Applications/Brave Browser.app"
+          "${pkgs.google-chrome}/Applications/Google Chrome.app"
           "/Applications/Gather.app"
           "${pkgs.obsidian}/Applications/Obsidian.app"
           "${pkgs.vscode}/Applications/Visual Studio Code.app"
@@ -121,6 +123,7 @@
           "appgate-sdp-client"
           "adobe-acrobat-reader"
           "visual-studio-code"
+
           # "google-chrome"
         #   "iina"
         #   "the-unarchiver"
@@ -161,6 +164,7 @@
           "nvim"
           "helm"
           "helmfile"
+          "flux"
         ];
         taps = [
           "koekeishiya/formulae"

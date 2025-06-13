@@ -1,5 +1,6 @@
 alias cat='bat'
 alias ls='eza'
+alias ll='ls -alh'
 alias vi='nvim'
 alias vim='nvim'
 alias k='kubectl'
@@ -30,6 +31,8 @@ alias gpc="find . -mindepth 1 -maxdepth 1 -type d | xargs -P5 -I{} git -C {} pul
 # git commit sign w/ gitmessage template
 alias gct="git commit --template ~/.gitmessage"
 alias gcat="git commit --all --template ~/.gitmessage"
+alias gcam="git commit --all --template ~/.gitmessage -m"
+alias gaa="git add -A"
 
 # Kubectl extras
 alias kak="kubectl apply -k"
@@ -77,7 +80,7 @@ alias creds='source ~/.config/2fctl/credentials.sh'
 alias dev2='2fctl login -a gov_aws_2f_dev -r IL2Administrator && creds'
 alias dev5='2fctl login -a gov_il5_dev -r IL5Administrator && creds'
 alias modcb='2fctl login sts -a modb -i yk-oath -t $(modcloudtoken) && creds'
-alias alais modcc='2fctl login sts -a modc -i yk-oath -t $(modcloudtoken) && creds'
+alias modcc='2fctl login sts -a modc -i yk-oath -t $(modcloudtoken) && creds'
 alias prd2='2fctl login -a gov_aws_2f_production -r IL2Administrator && creds'
 alias prd4='2fctl login -a gov_aws_2f_il4_production -r IL4Administrator && creds'
 alias prd5='2fctl login -a gov_aws_2f_il5_production -r IL5Administrator && creds'
