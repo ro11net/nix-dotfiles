@@ -50,7 +50,7 @@ alias {ncommands,nodescommands,nodecommands}='function f() \
 
 # Remove `kubectl scale deployment` so we can use kube secret decoder (ksd) like so
 # kgsec -n <namespace> <secretName> -o yaml | ksd
-unalias ksd
+# unalias ksd
 
 # pulumi
 alias pp=pulumi

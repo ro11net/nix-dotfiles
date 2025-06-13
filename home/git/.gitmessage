@@ -1,0 +1,63 @@
+# Title: Summary, imperative, start upper case, don't end with a period
+# No more than 50 chars. #### 50 chars is here:  #
+
+# Remember blank line between title and body.
+
+# Body: Explain *what* and *why* (not *how*). 
+# Wrap at 72 chars. ################################## which is here:  #
+
+# Include task ID (Gitlab Issue).
+# Available keywords:
+# Close, Closes, Closed, Closing, close, closes, closed, closing
+# Fix, Fixes, Fixed, Fixing, fix, fixes, fixed, fixing
+# Resolve, Resolves, Resolved, Resolving, resolve, resolves, resolved, resolving
+# Implement, Implements, Implemented, Implementing, implement, implements, implemented, implementing
+
+# Available issue reference formats:
+# A local issue (#123).
+# A cross-project issue (group/project#123).
+# The full URL of an issue (https://gitlab.example.com/group/project/issues/123).
+# An Epic (&1)
+
+# At the end: Include Co-authored-by for all contributors.
+# Include at least one empty line before it. Format:
+# Co-authored-by: Alec Lucas <alec.lucas@secondfront.com>
+# Co-authored-by: Alex Schlecht <alex.schlecht@secondfront.com>
+# Co-authored-by: Anthony Butt <anthony.butt@secondfront.com>
+# Co-authored-by: Clinton Harris <clinton.harris@secondfront.com>
+# Co-authored-by: Cory Michna <cory.michna@secondfront.com>
+# Co-authored-by: David Davis <david.davis1@secondfront.com>
+# Co-authored-by: Eric Wardner <eric.wardner@secondfront.com>
+# Co-authored-by: Isaac Sanchez-Hawkins <isaac.sanchezhawkins@secondfront.com>
+# Co-authored-by: Jared Baker <jared.baker@secondfront.com>
+# Co-authored-by: Jared Hail <jared.hail@secondfront.com>
+# Co-authored-by: Jeff Davis <jeff.davis@secondfront.com>
+# Co-authored-by: Josh Taylor <josh.taylor@secondfront.com>
+# Co-authored-by: Keohn Akins <keohn.akins@secondfront.com>
+# Co-authored-by: Kureen Paige <kureen.paige@secondfront.com>
+# Co-authored-by: Lucas Pick <lucas.pick@secondfront.com>
+# Co-authored-by: Lucy Kull <lucy.kull@secondfront.com>
+# Co-authored-by: Marc Miller <marc.miller@secondfront.com>
+# Co-authored-by: Nicholas Downey <nicholas.downey@secondfront.com>
+# Co-authored-by: Nicole Utt <nicole.utt@secondfront.com>
+# Co-authored-by: Robert Lee <robert.lee@secondfront.com>
+# Co-authored-by: Ryan Morris <ryanmorris@secondfront.com>
+# Co-authored-by: Scherrie Kennedy <scherrie.kennedy@secondfront.com>
+# Co-authored-by: Shane Copenhaver <shane.copenhaver@secondfront.com>
+# Co-authored-by: Stephen Buonamassa <stephen.buonamassa@secondfront.com>
+# Co-authored-by: Sydney Clark <sydney.clark@secondfront.com>
+# Co-authored-by: TJ MacDonald <tj.macdonald@secondfront.com>
+# Co-authored-by: Zachary Hopp <zachary.hopp@secondfront.com>
+# Co-authored-by: Adam Wieberg <adam.wieberg@secondfront.com>
+
+
+# How to Write a Git Commit Message:
+# https://chris.beams.io/posts/git-commit/
+#
+# 1. Separate subject from body with a blank line
+# 2. Limit the subject line to 50 characters
+# 3. Capitalize the subject line
+# 4. Do not end the subject line with a period
+# 5. Use the imperative mood in the subject line
+# 6. Wrap the body at 72 characters
+# 7. Use the body to explain what and why vs. how

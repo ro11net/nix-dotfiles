@@ -1,0 +1,35 @@
+[apply]
+	whitespace = fix
+[color]
+	ui = auto
+[core]
+	excludesfile = ~/.gitignore
+	whitespace = space-before-tab,-indent-with-non-tab,trailing-space
+	trustctime = false
+[credential]
+	helper = store
+[user]
+	name = Christian Rolland
+	email = c.rolland@protonmail.com
+[diff]
+	tool = meld
+	colorMoved = zebra
+[difftool]
+	prompt = false
+[difftool "meld"]
+	cmd = meld "$LOCAL" "$REMOTE"
+[merge]
+	tool = meld
+[mergetool]
+	prompt = false
+[pull]
+	rebase = true
+[fetch]
+	prune = true
+[mergetool "meld"]
+	cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+[includeIf "hasconfig:remote.*.url:https://code.il2.gamewarden.io/**"]
+  path = ~/workspace/.gitconfig-2F
+  path = ~/workspace/.gitconfig-2F-gpg
+[init]
+	defaultBranch = main

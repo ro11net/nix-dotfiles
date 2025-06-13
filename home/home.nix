@@ -18,7 +18,8 @@
     ".config/zsh".source = ./zsh;
     ".config/atuin".source = ./atuin;
     ".config/kitty".source = ./kitty;
-    ".zshrc".source = ./zshrc/.zshrc;
+    ".zshrc".source = ./zsh/.zshrc;
+    ".zshenv".source = ./zsh/.zshenv;
     # ".zshrc".source = ./zshrc/.zshrc;
     # ".config/wezterm".source = ~/dotfiles/wezterm;
     # ".config/skhd".source = ~/dotfiles/skhd;
@@ -36,6 +37,12 @@
     # ".config/aerospace".source = ~/dotfiles/aerospace;
     ".config/sketchybar".source = ./sketchybar;
     # ".config/nushell".source = ~/dotfiles/nushell;
+
+    # git
+    ".gitconfig".source = ./git/.gitconfig;
+    ".gitignore".source = ./git/.gitignore;
+    ".gitmessage".source = ./git/.gitmessage;
+    "workspace/.gitconfig-2F".source = ./git/.gitconfig-2F;
   };
 
   home.sessionVariables = {
