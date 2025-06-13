@@ -34,7 +34,7 @@ export ZDOTDIR="$HOME/.config/zsh"
 #######################################################################
 # Oh My Zsh
 #######################################################################
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
 
 #######################################################################
 # Aliases
@@ -44,8 +44,8 @@ source $ZDOTDIR/aliases
 #######################################################################
 # ASDF
 #######################################################################
-. $(brew --prefix asdf)/libexec/asdf.sh
-source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
+# . $(brew --prefix asdf)/libexec/asdf.sh
+# source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
 # . ${ASDF_DATA_DIR}/plugins/golang/set-env.zsh
 
 #######################################################################
