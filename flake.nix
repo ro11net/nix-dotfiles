@@ -36,6 +36,20 @@
           brave
           direnv
           kubectl
+          go
+          python3
+          age
+          dive
+          flux
+          nodejs
+          pulumi
+          sops
+          talosctl
+          omnictl
+          talhelper
+          terraform
+          trivy
+          sketchybar
           # tmux
         ];
       # services.nix-daemon.enable = true;
@@ -111,6 +125,7 @@
         #   "the-unarchiver"
         ];
         brews = [
+          "atuin"
           "imagemagick"
           "asdf"
           "bat"
@@ -143,6 +158,8 @@
           "trash-cli"
           "zsh"
           "nvim"
+          "helm"
+          "helmfile"
         ];
         taps = [
           "koekeishiya/formulae"

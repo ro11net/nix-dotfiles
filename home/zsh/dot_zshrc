@@ -32,7 +32,7 @@ setopt HIST_VERIFY               # Do not execute immediately upon history expan
 #######################################################################
 # Oh My Zsh
 #######################################################################
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
 
 #######################################################################
 # Aliases
@@ -42,8 +42,8 @@ source $ZDOTDIR/aliases
 #######################################################################
 # ASDF
 #######################################################################
-. $(brew --prefix asdf)/libexec/asdf.sh
-source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
+# . $(brew --prefix asdf)/libexec/asdf.sh
+# source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
 # . ${ASDF_DATA_DIR}/plugins/golang/set-env.zsh
 
 #######################################################################
@@ -66,4 +66,4 @@ eval "$(direnv hook zsh)"
 eval "$(starship init zsh)"
 
 # History
-eval "$(atuin init zsh)"
+# eval "$(atuin init zsh)"

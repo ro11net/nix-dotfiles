@@ -16,12 +16,13 @@
   # plain files is through 'home.file'.
   home.file = {
     ".config/zsh".source = ./zsh;
+    ".config/atuin".source = ./atuin;
     ".config/kitty".source = ./kitty;
     ".zshrc".source = ./zshrc/.zshrc;
     # ".zshrc".source = ./zshrc/.zshrc;
     # ".config/wezterm".source = ~/dotfiles/wezterm;
     # ".config/skhd".source = ~/dotfiles/skhd;
-    # ".config/starship".source = ~/dotfiles/starship;
+    ".config/starship".source = ./starship;
     # ".config/zellij".source = ~/dotfiles/zellij;
     # ".config/nvim".source = ./nvim;
     ".config/nvim/init.lua".source = ./nvim/init.lua;
@@ -32,7 +33,7 @@
     ".config/tmux".source = ./tmux;
     # ".config/ghostty".source = ~/dotfiles/ghostty;
     # ".config/aerospace".source = ~/dotfiles/aerospace;
-    # ".config/sketchybar".source = ~/dotfiles/sketchybar;
+    ".config/sketchybar".source = ./sketchybar;
     # ".config/nushell".source = ~/dotfiles/nushell;
   };
 
@@ -46,7 +47,7 @@
   programs.home-manager.enable = true;
   programs.zsh = {
     enable = true;
-    initExtra = ''
+    initContent = ''
       # Add any additional configurations here
       export PATH=/run/current-system/sw/bin:$HOME/.nix-profile/bin:$PATH
       if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
