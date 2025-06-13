@@ -35,3 +35,13 @@ export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
 export STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship/starship.toml
 
 export PATH="$XDG_BIN_HOME:$PATH"
+
+# krew envs
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+# Golang envs
+export GOPATH="$HOME/go"
+export GOBIN="$GOPATH/bin"
+export PATH="$GOPATH/bin:$PATH"
+export GOPRIVATE="code.il2.gamewarden.io/gamewarden/platform/gravity"
+export GONOSUMDB="code.il2.gamewarden.io"

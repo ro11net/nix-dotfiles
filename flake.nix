@@ -50,6 +50,7 @@
           terraform
           trivy
           sketchybar
+          krew
           # tmux
         ];
       # services.nix-daemon.enable = true;

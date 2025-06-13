@@ -8,3 +8,91 @@ alias modcc='2fctl login sts -a mod_c0153-devc -i yk-oath -t $(modcloudtoken) &&
 alias creds='source ~/.config/2fctl/credentials.sh'
 
 complete -o default -F __start_kubectl k
+
+# Zsh config shortcuts
+alias zali="vi $HOME/.zsh_aliases"
+alias zcfg="vi $HOME/.zshrc"
+alias zexp="vi $HOME/.zsh_exports"
+alias zfun="vi $HOME/.zsh_functions"
+alias reload="source $HOME/.zshrc"
+
+# Kitty kittens
+alias ssh="kitten ssh"
+alias pcb="kitten clipboard --get-clipboard"
+alias icat="kitten icat"
+alias kdif="kitten diff"
+
+# Git aliases
+# git count lines of code
+alias gcloc="git ls-files | xargs cloc"
+# git pull children of current directory with 5 subprocesses
+alias gpc="find . -mindepth 1 -maxdepth 1 -type d | xargs -P5 -I{} git -C {} pull"
+# git commit sign w/ gitmessage template
+alias gct="git commit --template ~/.gitmessage"
+alias gcat="git commit --all --template ~/.gitmessage"
+
+# Kubectl extras
+alias kak="kubectl apply -k"
+alias kge="kubectl get events --sort-by='.lastTimestamp'"
+alias kgen="kubectl get events --sort-by='.lastTimestamp' -n"
+alias {nodes,n}='kubectl get nodes -o custom-columns="NODE:.metadata.name,INSTANCE_ID:.spec.providerID,NODEGROUP_AMI:.metadata.labels.eks\.amazonaws\.com/nodegroup-image" --no-headers'
+  ## Run commands on every node within a cluster
+  ## ncommands usage: ncommands "<command>"
+alias {ncommands,nodescommands,nodecommands}='function f() \
+  { for i in $(kubectl get nodes -o custom-columns="NODE:.metadata.name,INSTANCE_ID:.spec.providerID" --no-headers |\
+   awk '\''{print $1, substr($2, 23)}'\'' |\
+    awk '\''{print $2}'\'');\
+     do aws ssm start-session \
+     --target $i \
+     --document-name AWS-StartInteractiveCommand \
+     --parameters "command=echo \$(curl -s http://169.254.169.254/latest/meta-data/instance-id) \
+      && $1"; done }; f'
+
+# Remove `kubectl scale deployment` so we can use kube secret decoder (ksd) like so
+# kgsec -n <namespace> <secretName> -o yaml | ksd
+unalias ksd
+
+# pulumi
+alias pp=pulumi
+
+# Fix watch usage with aliases
+alias watch="watch "
+
+# AWS Helpers
+alias aws_clusters="aws eks list-clusters | jq -r '.[][]'"
+
+# Generic Helpers
+alias ext_ip="curl icanhazip.com/v4"
+
+# 2F Login helpers
+alias creds="source ~/.config/2fctl/credentials.sh"
+alias 2fku='2fctl kubeconfig update'
+alias 2flogin='2fctl login'
+alias 2frc='2fctl refresh com'
+alias 2frg='2fctl refresh gov'
+alias co2='2fctl login -a gov_aws_2f_cloudops -r IL2Administrator && creds'
+alias co4='2fctl login -a gov_aws_2f_il4_cloudops -r IL4Administrator && creds'
+alias co5='2fctl login -a gov_aws_2f_il5_cloudops -r IL5Administrator && creds'
+alias creds='source ~/.config/2fctl/credentials.sh'
+alias dev2='2fctl login -a gov_aws_2f_dev -r IL2Administrator && creds'
+alias dev5='2fctl login -a gov_il5_dev -r IL5Administrator && creds'
+alias modcb='2fctl login sts -a modb -i yk-oath -t $(modcloudtoken) && creds'
+alias alais modcc='2fctl login sts -a modc -i yk-oath -t $(modcloudtoken) && creds'
+alias prd2='2fctl login -a gov_aws_2f_production -r IL2Administrator && creds'
+alias prd4='2fctl login -a gov_aws_2f_il4_production -r IL4Administrator && creds'
+alias prd5='2fctl login -a gov_aws_2f_il5_production -r IL5Administrator && creds'
+alias stg2='2fctl login -a gov_aws_2f_staging -r IL2Administrator && creds'
+alias stg4='2fctl login -a gov_aws_2f_il4_staging -r IL4Administrator && creds'
+alias stg5='2fctl login -a gov_aws_2f_il5_staging -r IL5Administrator && creds'
+alias modcb='2fctl login sts -a mod_c0153-devb -i ykman -t $(modcloudtoken) && creds'
+alias modcc='2fctl login sts -a mod_c0153-devc -i ykman -t $(modcloudtoken) && creds'
+alias modcloudtoken='ykman oath accounts code -s modcloud'
+# restart gpg-agent and pcscd
+alias rsgpg="service pcscd restart && pkill gpg-agent"
+
+# If $HOME/.zsh_custom_aliases folder exists, source the files therein
+# This is useful if you want to setup some custom aliases, because writing to _this file_ 
+# will be overridden next time you run the dots
+if [[ -d "$HOME/.zsh_custom_aliases" ]]; then
+  source <(cat $HOME/.zsh_custom_aliases/*)
+fi
