@@ -55,7 +55,7 @@
   programs.home-manager.enable = true;
   programs.zsh = {
     enable = true;
-    initContent = ''
+    initExtra = ''
       # Add any additional configurations here
       export PATH=/run/current-system/sw/bin:$HOME/.nix-profile/bin:$PATH
       if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then

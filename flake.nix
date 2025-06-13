@@ -35,7 +35,7 @@
           google-chrome
           brave
           direnv
-          kubectl
+          # kubectl
           go
           python3
           age
@@ -165,6 +165,8 @@
           "helm"
           "helmfile"
           "flux"
+          "kubernetes-cli"
+          "kubelogin"
         ];
         taps = [
           "koekeishiya/formulae"
