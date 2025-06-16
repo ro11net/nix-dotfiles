@@ -5,7 +5,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_BIN_HOME="$HOME/.local/bin"
 
 export ZSH_DISABLE_COMPFIX=true
-export HISTFILE="$XDG_DATA_HOME/zsh/history"
+export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=1000000000
 export HISTFILESIZE=1000000000
 export SAVEHIST=1000000000

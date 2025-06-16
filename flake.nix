@@ -52,6 +52,8 @@
           sketchybar
           krew
           # tmux
+          google-cloud-sdk
+          awscli2
         ];
       # services.nix-daemon.enable = true;
       nix.settings.experimental-features = "nix-command flakes";
