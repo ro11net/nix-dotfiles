@@ -45,3 +45,6 @@ export GOBIN="$GOPATH/bin"
 export PATH="$GOPATH/bin:$PATH"
 export GOPRIVATE="code.il2.gamewarden.io/gamewarden/platform/gravity"
 export GONOSUMDB="code.il2.gamewarden.io"
+
+# Needed to use gpg key for signing commits
+export GPG_TTY=$(tty)

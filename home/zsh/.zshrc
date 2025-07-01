@@ -70,10 +70,12 @@ eval "$(direnv hook zsh)"
 eval "$(starship init zsh)"
 
 # History
-# eval "$(atuin init zsh)"
+eval "$(atuin init zsh)"
 
 # flux completion
 autoload -Uz compinit
 compinit
 
 command -v flux >/dev/null && . <(flux completion zsh)
+
+autoload -Uz $ZDOTDIR/.zshenv

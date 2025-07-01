@@ -8,7 +8,7 @@ alias modcb='2fctl login sts -a mod_c0153-devb -i yk-oath -t $(modcloudtoken) &&
 alias modcc='2fctl login sts -a mod_c0153-devc -i yk-oath -t $(modcloudtoken) && creds'
 alias creds='source ~/.config/2fctl/credentials.sh'
 
-complete -o default -F __start_kubectl k
+complete -o default -F __start_kubectl 0x7c73
 
 # Zsh config shortcuts
 alias zali="vi $HOME/.zsh_aliases"
@@ -33,6 +33,7 @@ alias gct="git commit --template ~/.gitmessage"
 alias gcat="git commit --all --template ~/.gitmessage"
 alias gcam="git commit --all --template ~/.gitmessage -m"
 alias gaa="git add -A"
+alias gfix="git commit --fixup=HEAD"
 
 # Kubectl extras
 alias kak="kubectl apply -k"

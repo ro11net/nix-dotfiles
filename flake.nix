@@ -42,7 +42,7 @@
           dive
           # flux
           nodejs
-          pulumi
+          # pulumi
           sops
           talosctl
           omnictl
@@ -52,7 +52,7 @@
           sketchybar
           krew
           # tmux
-          google-cloud-sdk
+          # google-cloud-sdk
           awscli2
         ];
       # services.nix-daemon.enable = true;
@@ -125,7 +125,7 @@
           "appgate-sdp-client"
           "adobe-acrobat-reader"
           "visual-studio-code"
-
+          "google-cloud-sdk"
           # "google-chrome"
         #   "iina"
         #   "the-unarchiver"
@@ -169,6 +169,7 @@
           "flux"
           "kubernetes-cli"
           "kubelogin"
+          "pulumi"
         ];
         taps = [
           "koekeishiya/formulae"
