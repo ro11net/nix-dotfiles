@@ -3,6 +3,17 @@
 # Shift-T (with confirmation) to toggle helm releases or kustomizations suspend and resume
 # Shift-R (no confirmation) to reconcile a git source or a helm release or a kustomization
 plugins:
+  np-viewer:
+    shortCut: v
+    description: View NetPols
+    scopes:
+      - pods
+    command: bash
+    confirm: false
+    background: false
+    args:
+      - -c
+      - "kubectl np-viewer -p $NAME -n $NAMESPACE --context $CONTEXT | less -K"
   debug:
     shortCut: Shift-D
     description: Add debug container

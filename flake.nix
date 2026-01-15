@@ -50,10 +50,13 @@
           terraform
           trivy
           sketchybar
-          krew
+          # krew
           # tmux
           # google-cloud-sdk
           awscli2
+          go-task
+          # kustomize
+          # docker-client
         ];
       # services.nix-daemon.enable = true;
       nix.settings.experimental-features = "nix-command flakes";
@@ -107,9 +110,9 @@
         casks = [
         #   "hammerspoon"
           "firefox"
-          "wireshark"
+          # "wireshark"
           "bitwarden"
-          "docker"
+          # "docker"
           "font-fira-code"
           "font-fira-code-nerd-font"
           "font-victor-mono-nerd-font"
@@ -125,14 +128,13 @@
           "appgate-sdp-client"
           "adobe-acrobat-reader"
           "visual-studio-code"
-          "google-cloud-sdk"
+          # "google-cloud-sdk"
           # "google-chrome"
         #   "iina"
         #   "the-unarchiver"
         ];
         brews = [
           "atuin"
-          "imagemagick"
           "asdf"
           "bat"
           "bitwarden-cli"
@@ -144,7 +146,7 @@
           "git"
           "glab"
           "glow"
-          "imagemagick"
+          # "imagemagick"
           "jq"
           "jp2a"
           "k9s"
@@ -166,16 +168,24 @@
           "nvim"
           "helm"
           "helmfile"
-          "flux"
+          "fluxcd/tap/flux"
+          "krew"
           "kubernetes-cli"
           "kubelogin"
           "pulumi"
+          "python"
+          "wget"
+          "kustomize"
+          "hashicorp/tap/vault"
         ];
         taps = [
           "koekeishiya/formulae"
           "smudge/smudge"
           # "homebrew/cask-fonts"
           "FelixKratz/formulae"
+          "hashicorp/tap"
+          "fluxcd/tap"
+          # "go-task/tap/go-task"
         ];
 
         # masApps = {

@@ -31,5 +31,14 @@
 [includeIf "hasconfig:remote.*.url:https://code.il2.gamewarden.io/**"]
   path = ~/workspace/.gitconfig-2F
   path = ~/workspace/.gitconfig-2F-gpg
+[includeIf "hasconfig:remote.*.url:https://code.fedramp.gamewarden.io/**"]
+  path = ~/workspace/.gitconfig-2F
+  path = ~/workspace/.gitconfig-2F-gpg
+[includeIf "hasconfig:remote.*.url:https://code.secondfront.com/**"]
+  path = ~/workspace/.gitconfig-2F
+  path = ~/workspace/.gitconfig-2F-gp
+[includeIf "hasconfig:remote.*.url:https://github.com/second-front/**"]
+  path = ~/workspace/.gitconfig-2Fgit
+  path = ~/workspace/.gitconfig-2F-gp
 [init]
 	defaultBranch = main

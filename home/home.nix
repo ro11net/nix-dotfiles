@@ -43,6 +43,7 @@
     ".gitignore".source = ./git/.gitignore;
     ".gitmessage".source = ./git/.gitmessage;
     "workspace/.gitconfig-2F".source = ./git/.gitconfig-2F;
+    "workspace/.gitconfig-2Fgit".source = ./git/.gitconfig-2F;
   };
 
   home.sessionVariables = {
