@@ -4,7 +4,6 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:nix-darwin/nix-darwin/master";
-    # nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -14,67 +13,56 @@
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager }:
   let
+    username = "chrisrolland";
 
-    # Enable Zsh shell
-    programs.zsh.enable = true;
+    mkSystem = hostname: nix-darwin.lib.darwinSystem {
+      system = "aarch64-darwin";
+      modules = [
+        (configuration hostname)
+        home-manager.darwinModules.home-manager {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.extraSpecialArgs = { inherit username; };
+          home-manager.users.${username} = import ./home/home.nix;
+        }
+      ];
+    };
 
-    configuration = { pkgs, ... }: {
-      # List packages installed in system profile. To search by name, run:
-      # $ nix-env -qaP | grep wget
+    configuration = hostname: { pkgs, ... }: {
       environment.systemPackages = with pkgs;
         [
-          # vim
-          direnv
           sshs
-          glow
           nushell
           carapace
-          # neovim
-          # vscode
-          obsidian
-          google-chrome
-          brave
-          direnv
-          # kubectl
           go
           python3
           age
           dive
-          # flux
           nodejs
-          # pulumi
           sops
           talosctl
-          # omnictl
           talhelper
           terraform
           trivy
           sketchybar
-          # krew
-          # tmux
-          # google-cloud-sdk
           awscli2
           go-task
-          # kustomize
-          # docker-client
         ];
-      # services.nix-daemon.enable = true;
-      nix.settings.experimental-features = "nix-command flakes";
-      programs.zsh.enable = true;  # default shell on catalina
+
+      nix.enable = false; # Determinate Systems manages the Nix installation
+
+      environment.etc."nix/nix.conf.d/trusted-users.conf".text = ''
+        trusted-users = root ${username}
+      '';
+      programs.zsh.enable = true;
       system.configurationRevision = self.rev or self.dirtyRev or null;
       system.stateVersion = 4;
       nixpkgs.hostPlatform = "aarch64-darwin";
-      # security.pam.enableSudoTouchIdAuth = true;
 
-      users.users.christianrolland.home = "/Users/christianrolland";
+      users.users.${username}.home = "/Users/${username}";
       home-manager.backupFileExtension = "backup";
-      # nix.configureBuildUsers = true;
-      # nix.useDaemon = true;
-      ids.gids.nixbld = 350;
-      system.primaryUser = "christianrolland";
+      system.primaryUser = username;
 
-
-      # Allow unfree packages
       nixpkgs.config.allowUnfree = true;
 
       system.defaults = {
@@ -83,58 +71,50 @@
         finder.AppleShowAllExtensions = true;
         finder.FXPreferredViewStyle = "clmv";
         dock.persistent-apps = [
-          "/System/Applications/Launchpad.app"
+          "/System/Applications/Apps.app"
           "/Applications/Spotify.app"
           "/Applications/Slack.app"
           "/Applications/Firefox.app"
-          "${pkgs.brave}/Applications/Brave Browser.app"
-          "${pkgs.google-chrome}/Applications/Google Chrome.app"
+          "/Applications/Brave Browser.app"
+          "/Applications/Google Chrome.app"
           "/Applications/Gather.app"
-          "${pkgs.obsidian}/Applications/Obsidian.app"
-          "${pkgs.vscode}/Applications/Visual Studio Code.app"
+          "/Applications/Obsidian.app"
+          "/Applications/Visual Studio Code.app"
           "/Applications/kitty.app"
+          "/Applications/Logic Pro.app"
           "/System/Applications/Mail.app"
           "/System/Applications/Calendar.app"
         ];
-        # loginwindow.LoginwindowText = "devops-toolbox";
         screencapture.location = "~/Pictures/screenshots";
-        # screensaver.askForPasswordDelay = 10;
       };
 
-      # Homebrew packages
+
       homebrew = {
         enable = true;
-        # brews = [
-        #   "mas"
-        # ];
         casks = [
-        #   "hammerspoon"
           "firefox"
-          # "wireshark"
           "bitwarden"
-          # "docker"
+          "brave-browser"
           "font-fira-code"
           "font-fira-code-nerd-font"
+          "font-sketchybar-app-font"
           "font-victor-mono-nerd-font"
           "font-roboto-mono-nerd-font"
           "gather"
           "google-chrome"
           "google-drive"
           "kitty"
+          "obsidian"
           "slack"
           "spotify"
           "sf-symbols"
           "zoom"
-          "appgate-sdp-client"
           "adobe-acrobat-reader"
           "visual-studio-code"
           "claude-code"
-          # "google-cloud-sdk"
-          # "google-chrome"
-        #   "iina"
-        #   "the-unarchiver"
         ];
         brews = [
+          "mas"
           "atuin"
           "asdf"
           "bat"
@@ -145,21 +125,17 @@
           "eza"
           "fzf"
           "git"
+          "gh"
           "glab"
           "glow"
-          # "imagemagick"
           "jq"
-          "jp2a"
           "k9s"
           "mpv"
           "neofetch"
-          # "nightlight"
           "nnn"
           "pastel"
           "poppler"
           "ripgrep"
-          # "skhd"
-          # "sketchybar"
           "spotify_player"
           "starship"
           "tmux"
@@ -174,24 +150,20 @@
           "kubernetes-cli"
           "kubelogin"
           "pulumi"
-          "python"
           "wget"
           "kustomize"
           "hashicorp/tap/vault"
         ];
         taps = [
-          "koekeishiya/formulae"
-          "smudge/smudge"
-          # "homebrew/cask-fonts"
           "FelixKratz/formulae"
           "hashicorp/tap"
           "fluxcd/tap"
-          # "go-task/tap/go-task"
         ];
 
-        # masApps = {
-        #   "Slack" = 803453959;
-        # };
+        masApps = {
+          "Logic Pro" = 634148309;
+        };
+
         onActivation.cleanup = "zap";
         onActivation.autoUpdate = true;
         onActivation.upgrade = true;
@@ -199,19 +171,8 @@
     };
   in
   {
-    darwinConfigurations."Christians-MacBook-Pro" = nix-darwin.lib.darwinSystem {
-      system = "aarch64-darwin";
-      modules = [
-	configuration
-        home-manager.darwinModules.home-manager {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.christianrolland = import ./home/home.nix;
-        }
-      ];
+    darwinConfigurations = {
+      "Chriss-MacBook-Pro" = mkSystem "Chriss-MacBook-Pro";
     };
-
-    # Expose the package set, including overlays, for convenience.
-    darwinPackages = self.darwinConfigurations."Christians-MacBook-Pro".pkgs;
   };
 }
