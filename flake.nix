@@ -86,6 +86,7 @@
           "/System/Applications/Calendar.app"
         ];
         screencapture.location = "~/Pictures/screenshots";
+        NSGlobalDomain."com.apple.swipescrolldirection" = false;
       };
 
 
