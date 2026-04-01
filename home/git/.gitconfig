@@ -12,33 +12,25 @@
 	name = Christian Rolland
 	email = c.rolland@protonmail.com
 [diff]
-	tool = meld
+	tool = vimdiff
 	colorMoved = zebra
 [difftool]
 	prompt = false
-[difftool "meld"]
-	cmd = meld "$LOCAL" "$REMOTE"
 [merge]
-	tool = meld
+	tool = vimdiff
 [mergetool]
 	prompt = false
 [pull]
 	rebase = true
 [fetch]
 	prune = true
-[mergetool "meld"]
-	cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
 [includeIf "hasconfig:remote.*.url:https://code.il2.gamewarden.io/**"]
   path = ~/workspace/.gitconfig-2F
-  path = ~/workspace/.gitconfig-2F-gpg
 [includeIf "hasconfig:remote.*.url:https://code.fedramp.gamewarden.io/**"]
   path = ~/workspace/.gitconfig-2F
-  path = ~/workspace/.gitconfig-2F-gpg
 [includeIf "hasconfig:remote.*.url:https://code.secondfront.com/**"]
   path = ~/workspace/.gitconfig-2F
-  path = ~/workspace/.gitconfig-2F-gp
 [includeIf "hasconfig:remote.*.url:https://github.com/second-front/**"]
   path = ~/workspace/.gitconfig-2Fgit
-  path = ~/workspace/.gitconfig-2F-gp
 [init]
 	defaultBranch = main

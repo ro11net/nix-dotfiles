@@ -10,8 +10,6 @@ command_timeout = 1000
 vicmd_symbol = "[N] >>>"
 success_symbol = '[➜](bold green)'
 
-[directory.substitutions]
-'~/tests/starship-custom' = 'work-project'
 
 [git_branch]
 format =  '[$symbol$branch(:$remote_branch)]($style)'
@@ -31,7 +29,7 @@ disabled = true
 detect_files = ['Dockerfile']
 format = '[$symbol$context( \($namespace\))]($style) '
 contexts = [
-  { context_pattern = "arn:aws:eks:us-west-2:577926974532:cluster/zd-pvc-omer", style = "green", context_alias = "christianrolland", symbol = " " },
+  { context_pattern = "arn:aws:eks:us-west-2:577926974532:cluster/zd-pvc-omer", style = "green", context_alias = "chrisrolland", symbol = " " },
 ]
 
 [docker_context]
