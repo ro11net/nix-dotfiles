@@ -33,7 +33,7 @@
     ".gitconfig".source = ./git/.gitconfig;
     ".gitignore".source = ./git/.gitignore;
     ".gitmessage".source = ./git/.gitmessage;
-    "workspace/.gitconfig-2F".source = ./git/.gitconfig-2F;
+    "workspace/.gitconfig-dev".source = ./git/.gitconfig-dev;
     "workspace/.gitconfig-2Fgit".source = ./git/.gitconfig-2Fgit;
   };
 

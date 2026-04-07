@@ -25,11 +25,11 @@
 [fetch]
 	prune = true
 [includeIf "hasconfig:remote.*.url:https://code.il2.gamewarden.io/**"]
-  path = ~/workspace/.gitconfig-2F
+  path = ~/workspace/.gitconfig-dev
 [includeIf "hasconfig:remote.*.url:https://code.fedramp.gamewarden.io/**"]
-  path = ~/workspace/.gitconfig-2F
+  path = ~/workspace/.gitconfig-dev
 [includeIf "hasconfig:remote.*.url:https://code.secondfront.com/**"]
-  path = ~/workspace/.gitconfig-2F
+  path = ~/workspace/.gitconfig-dev
 [includeIf "hasconfig:remote.*.url:https://github.com/second-front/**"]
   path = ~/workspace/.gitconfig-2Fgit
 [init]
