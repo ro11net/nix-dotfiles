@@ -51,7 +51,7 @@
 
       nix.enable = false; # Determinate Systems manages the Nix installation
 
-      environment.etc."nix/nix.conf.d/trusted-users.conf".text = ''
+      environment.etc."nix/nix.custom.conf".text = ''
         trusted-users = root ${username}
       '';
       programs.zsh.enable = true;
