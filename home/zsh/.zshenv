@@ -39,6 +39,9 @@ export PATH="$XDG_BIN_HOME:$PATH"
 # krew envs
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
+# Docker (user install)
+export PATH="$HOME/.docker/bin:$PATH"
+
 # Golang envs
 export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
