@@ -113,6 +113,7 @@
           "adobe-acrobat-reader"
           "visual-studio-code"
           "claude-code"
+          "docker"
         ];
         brews = [
           "mas"
