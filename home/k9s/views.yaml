@@ -1,0 +1,41 @@
+views:
+  kustomize.toolkit.fluxcd.io/v1/kustomizations:
+    columns:
+      - NAME
+      - NAMESPACE
+      - SUSPENDED
+      - READY
+      - STATUS
+      - AGE
+  helm.toolkit.fluxcd.io/v2/helmreleases:
+    columns:
+      - NAME
+      - NAMESPACE
+      - SUSPENDED
+      - READY
+      - STATUS
+      - AGE
+  source.toolkit.fluxcd.io/v1/gitrepositories:
+    columns:
+      - NAME
+      - NAMESPACE
+      - SUSPENDED
+      - READY
+      - STATUS
+      - AGE
+  source.toolkit.fluxcd.io/v1/helmrepositories:
+    columns:
+      - NAME
+      - NAMESPACE
+      - SUSPENDED
+      - READY
+      - STATUS
+      - AGE
+  source.toolkit.fluxcd.io/v1/ocirepositories:
+    columns:
+      - NAME
+      - NAMESPACE
+      - SUSPENDED
+      - READY
+      - STATUS
+      - AGE

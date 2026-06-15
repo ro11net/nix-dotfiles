@@ -1,6 +1,6 @@
 # home.nix
 
-{ config, pkgs, username, ... }:
+{ config, pkgs, lib, username, ... }:
 
 {
   home.username = username;
@@ -41,6 +41,14 @@
     "/run/current-system/sw/bin"
     "$HOME/.nix-profile/bin"
   ];
+
+  home.activation.dockerBuildx = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    mkdir -p "$HOME/.config/docker/cli-plugins"
+    buildxPlugin="/Applications/Docker.app/Contents/Resources/cli-plugins/docker-buildx"
+    if [ -f "$buildxPlugin" ] && [ ! -e "$HOME/.config/docker/cli-plugins/docker-buildx" ]; then
+      ln -s "$buildxPlugin" "$HOME/.config/docker/cli-plugins/docker-buildx"
+    fi
+  '';
 
   programs.home-manager.enable = true;
   programs.zsh = {

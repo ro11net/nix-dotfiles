@@ -113,7 +113,7 @@
           "adobe-acrobat-reader"
           "visual-studio-code"
           "claude-code"
-          "docker"
+          "docker-desktop"
         ];
         brews = [
           "mas"
@@ -166,7 +166,9 @@
           "Logic Pro" = 634148309;
         };
 
-        onActivation.cleanup = "zap";
+        # TODO: restore cleanup = "zap" once nix-darwin uses `brew bundle cleanup` instead of
+        # the deprecated `--cleanup` flag. Until then, run manually: brew bundle cleanup --zap
+        onActivation.cleanup = "none";
         onActivation.autoUpdate = true;
         onActivation.upgrade = true;
       };
