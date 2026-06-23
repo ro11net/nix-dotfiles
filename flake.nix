@@ -123,6 +123,8 @@
           "mas"
           "atuin"
           "asdf"
+          "cloudflared"
+          "infisical"
           "bat"
           "bitwarden-cli"
           "bash"
