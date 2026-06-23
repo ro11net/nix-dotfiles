@@ -42,6 +42,33 @@
     "$HOME/.nix-profile/bin"
   ];
 
+  # UAD Meter & Control Panel has & in its path, which breaks nix-darwin's plist generation.
+  # Inject it directly into the dock plist after nix-darwin sets the dock.
+  home.activation.uadMeterDock = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    /usr/bin/python3 - <<'EOF'
+import plistlib, os, sys
+
+plist_path = os.path.expanduser("~/Library/Preferences/com.apple.dock.plist")
+uad_path = "/Applications/Universal Audio/UAD Meter & Control Panel.app"
+
+if not os.path.isdir(uad_path):
+    sys.exit(0)
+
+with open(plist_path, 'rb') as f:
+    plist = plistlib.load(f)
+
+apps = plist.get('persistent-apps', [])
+paths = [e.get('tile-data', {}).get('file-data', {}).get('_CFURLString', "") for e in apps]
+
+if uad_path not in paths:
+    apps.append({'tile-data': {'file-data': {'_CFURLString': uad_path, '_CFURLStringType': 0}}})
+    plist['persistent-apps'] = apps
+    with open(plist_path, 'wb') as f:
+        plistlib.dump(plist, f, fmt=plistlib.FMT_BINARY)
+    os.system("killall Dock 2>/dev/null")
+EOF
+  '';
+
   home.activation.dockerBuildx = lib.hm.dag.entryAfter ["writeBoundary"] ''
     mkdir -p "$HOME/.config/docker/cli-plugins"
     buildxPlugin="/Applications/Docker.app/Contents/Resources/cli-plugins/docker-buildx"
