@@ -19,6 +19,11 @@
     ".config/k9s".source = ./k9s;
     ".config/sketchybar".source = ./sketchybar;
 
+    # Claude Code. Out-of-store symlinks so Claude Code can still write to these
+    # files (e.g. when `/model` saves a default). Edits show up in `git diff`.
+    ".claude/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix-darwin/home/claude/settings.json";
+    ".claude/statusline.sh".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix-darwin/home/claude/statusline.sh";
+
 
     # Uncomment to enable:
     # ".config/nvim".source = ./nvim;
