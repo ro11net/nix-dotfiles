@@ -84,10 +84,10 @@
           "/Applications/Visual Studio Code.app"
           "/Applications/kitty.app"
           "/Applications/Logic Pro.app"
-          "/Applications/LUNA.app"
-          "/Applications/Universal Audio/UAD Console.app"
           "/System/Applications/Mail.app"
           "/System/Applications/Calendar.app"
+          "/Applications/Universal Audio/UAD Console.app"
+          "/Applications/Emby.app"
         ];
         screencapture.location = "~/Pictures/screenshots";
         NSGlobalDomain."com.apple.swipescrolldirection" = false;
@@ -161,22 +161,38 @@
           "wget"
           "kustomize"
           "hashicorp/tap/vault"
+          "siderolabs/tap/omnictl"
+          "sshpass"
+          "stripe/stripe-cli/stripe"
         ];
         taps = [
           "FelixKratz/formulae"
           "hashicorp/tap"
           "fluxcd/tap"
+          "infisical/get-cli"
+          "siderolabs/tap"
+          "stripe/stripe-cli"
         ];
 
         masApps = {
           "Logic Pro" = 634148309;
+          "Emby" = 992180193;
+          "Magnet" = 441258766;
+          "OnSong 2024" = 1330350343;
+          "Parallels Desktop" = 1085114709;
+          "PDF Reader Pro" = 919472673;
+          "PDFgear" = 6469021132;
+          "StuffIt Expander" = 919269455;
+          "The Unarchiver" = 425424353;
         };
 
         # TODO: restore cleanup = "zap" once nix-darwin uses `brew bundle cleanup` instead of
         # the deprecated `--cleanup` flag. Until then, run manually: brew bundle cleanup --zap
         onActivation.cleanup = "none";
-        onActivation.autoUpdate = true;
-        onActivation.upgrade = true;
+        # Paused so a rebuild only applies config changes. Upgrade deliberately with
+        # `brew update && brew upgrade`, then consider turning these back on.
+        onActivation.autoUpdate = false;
+        onActivation.upgrade = false;
       };
     };
   in
