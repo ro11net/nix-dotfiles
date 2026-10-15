@@ -14,12 +14,6 @@ alias zcfg="vi $ZDOTDIR/.zshrc"
 alias zexp="vi $ZDOTDIR/.zshenv"
 alias reload="source $ZDOTDIR/.zshrc"
 
-# Kitty kittens
-alias ssh="kitten ssh"
-alias pcb="kitten clipboard --get-clipboard"
-alias icat="kitten icat"
-alias kdif="kitten diff"
-
 # Git aliases
 alias gcloc="git ls-files | xargs cloc"
 alias gpc="find . -mindepth 1 -maxdepth 1 -type d | xargs -P5 -I{} git -C {} pull"

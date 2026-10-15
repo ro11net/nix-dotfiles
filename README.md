@@ -105,7 +105,7 @@ The `noglob` prefix prevents zsh from expanding the `#` in the flake path.
     ├── home.nix       # home-manager entry point — wires up dotfile symlinks
     ├── zsh/           # .zshrc, aliases, functions, .zshenv
     ├── git/           # .gitconfig, .gitignore, .gitmessage, per-dir gitconfigs
-    ├── kitty/         # Terminal emulator config
+    ├── archive/       # Retired configs (e.g. kitty)
     ├── sketchybar/    # macOS status bar config and plugins
     ├── starship/      # Shell prompt (Catppuccin Mocha theme)
     ├── atuin/         # Shell history config
@@ -120,7 +120,7 @@ The `noglob` prefix prevents zsh from expanding the `#` in the flake path.
 |------|-------|
 | CLI dev tools (go, python, terraform, awscli2, etc.) | `flake.nix` → `environment.systemPackages` |
 | Homebrew CLI tools (git, gh, nvim, kubectl, helm, etc.) | `flake.nix` → `homebrew.brews` |
-| GUI apps (Firefox, Slack, VS Code, Kitty, etc.) | `flake.nix` → `homebrew.casks` |
+| GUI apps (Firefox, Slack, VS Code, Zed, etc.) | `flake.nix` → `homebrew.casks` |
 | Mac App Store apps (Logic Pro, etc.) | `flake.nix` → `homebrew.masApps` |
 | Dotfile symlinks | `home/home.nix` → `home.file` |
 

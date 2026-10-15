@@ -34,7 +34,7 @@ The `noglob` prefix is required to prevent zsh from expanding the `#` in the fla
 - `home/zsh/` — zsh rc, aliases, functions, `.zshenv`
 - `home/git/` — `.gitconfig`, `.gitmessage`, `.gitignore`
 - `home/sketchybar/` — macOS status bar config and plugins
-- `home/kitty/` — terminal config
+- `home/zed/` — editor config (planned)
 - `home/starship/` — prompt (Catppuccin Mocha theme)
 - `home/atuin/`, `home/k9s/`, `home/nix/`, etc.
 
@@ -44,7 +44,7 @@ The `noglob` prefix is required to prevent zsh from expanding the `#` in the fla
 |------|-------|
 | CLI dev tools (go, python, terraform, awscli2, talosctl, sops, etc.) | `flake.nix` → `environment.systemPackages` |
 | Homebrew CLI tools (git, gh, fzf, nvim, kubectl, helm, vault, etc.) | `flake.nix` → `homebrew.brews` |
-| GUI apps (Firefox, Slack, VS Code, Kitty, etc.) | `flake.nix` → `homebrew.casks` |
+| GUI apps (Firefox, Slack, VS Code, Zed, etc.) | `flake.nix` → `homebrew.casks` |
 | Mac App Store apps (Logic Pro, etc.) | `flake.nix` → `homebrew.masApps` |
 | Dotfile symlinks | `home/home.nix` → `home.file` |
 

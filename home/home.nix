@@ -13,7 +13,6 @@
   home.file = {
     ".config/zsh".source = ./zsh;
     ".config/atuin".source = ./atuin;
-    ".config/kitty".source = ./kitty;
     ".zshenv".source = ./zsh/.zshenv;
     ".config/starship".source = ./starship;
     ".config/nix".source = ./nix;
