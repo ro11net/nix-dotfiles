@@ -1,6 +1,11 @@
 // Zed settings, managed in ~/.config/nix-darwin/home/zed/ (linked into ~/.config/zed/).
 // Docs: https://zed.dev/docs/configuring-zed
 {
+  "agent_servers": {
+    "claude-acp": {
+      "type": "registry"
+    }
+  },
   "telemetry": {
     "diagnostics": false,
     "metrics": false,
@@ -12,7 +17,7 @@
   "buffer_font_size": 15,
   "buffer_font_family": "FiraCode Nerd Font",
   "theme": {
-    "mode": "system",
+    "mode": "dark",
     "dark": "Catppuccin Mocha",
     "light": "Catppuccin Latte"
   },
@@ -31,9 +36,16 @@
   // formatting can rewrite whole files in repos that have no formatter config.
   "format_on_save": "off",
 
-  // Terminal: uses $SHELL (zsh); a Nerd Font so starship's icons render
+  // Terminal: uses $SHELL (zsh); a Nerd Font so starship's icons render.
+  // New terminals open in the project's root, so no cd is needed.
   "terminal": {
     "shell": "system",
-    "font_family": "FiraCode Nerd Font Mono"
+    "font_family": "FiraCode Nerd Font Mono",
+    "working_directory": "current_project_directory"
+  },
+
+  // Terminal Threads start Claude Code automatically (the plain terminal panel is unaffected).
+  "agent": {
+    "terminal_init_command": "claude"
   }
 }
