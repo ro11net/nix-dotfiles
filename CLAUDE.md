@@ -34,7 +34,7 @@ The `noglob` prefix is required to prevent zsh from expanding the `#` in the fla
 - `home/zsh/` — zsh rc, aliases, functions, `.zshenv`
 - `home/git/` — `.gitconfig`, `.gitmessage`, `.gitignore`
 - `home/sketchybar/` — macOS status bar config and plugins
-- `home/zed/` — editor config (planned)
+- `home/zed/`, `home/claude/` — editor and Claude Code settings (writable symlinks)
 - `home/starship/` — prompt (Catppuccin Mocha theme)
 - `home/atuin/`, `home/k9s/`, `home/nix/`, etc.
 

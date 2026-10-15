@@ -1,0 +1,39 @@
+// Zed settings, managed in ~/.config/nix-darwin/home/zed/ (linked into ~/.config/zed/).
+// Docs: https://zed.dev/docs/configuring-zed
+{
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+    "anthropic_retention": false
+  },
+
+  // Appearance
+  "ui_font_size": 16,
+  "buffer_font_size": 15,
+  "buffer_font_family": "FiraCode Nerd Font",
+  "theme": {
+    "mode": "system",
+    "dark": "Catppuccin Mocha",
+    "light": "Catppuccin Latte"
+  },
+  "auto_install_extensions": {
+    "catppuccin": true
+  },
+
+  // Editing
+  "vim_mode": true,
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 1000
+    }
+  },
+  // Off until each repo defines its own formatter; otherwise Zed's built-in
+  // formatting can rewrite whole files in repos that have no formatter config.
+  "format_on_save": "off",
+
+  // Terminal: uses $SHELL (zsh); a Nerd Font so starship's icons render
+  "terminal": {
+    "shell": "system",
+    "font_family": "FiraCode Nerd Font Mono"
+  }
+}

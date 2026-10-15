@@ -24,6 +24,10 @@
     ".claude/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix-darwin/home/claude/settings.json";
     ".claude/statusline.sh".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix-darwin/home/claude/statusline.sh";
 
+    # Zed. Same writable-link approach: Zed rewrites this file when settings are
+    # changed from its UI.
+    ".config/zed/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix-darwin/home/zed/settings.json";
+
 
     # Uncomment to enable:
     # ".config/nvim".source = ./nvim;
