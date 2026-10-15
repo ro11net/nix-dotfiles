@@ -42,7 +42,6 @@
     ".gitignore".source = ./git/.gitignore;
     ".gitmessage".source = ./git/.gitmessage;
     "workspace/.gitconfig-dev".source = ./git/.gitconfig-dev;
-    "workspace/.gitconfig-2Fgit".source = ./git/.gitconfig-2Fgit;
   };
 
   home.sessionPath = [
