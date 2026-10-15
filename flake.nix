@@ -82,6 +82,7 @@
           "/Applications/Obsidian.app"
           "/Applications/Roam.app"
           "/Applications/Visual Studio Code.app"
+          "/Applications/Zed.app"
           "/Applications/kitty.app"
           "/Applications/Logic Pro.app"
           "/System/Applications/Mail.app"
@@ -118,6 +119,7 @@
           "visual-studio-code"
           "claude-code"
           "docker-desktop"
+          "zed"
         ];
         brews = [
           "mas"
@@ -144,6 +146,7 @@
           "pastel"
           "poppler"
           "ripgrep"
+          "gitleaks"
           "spotify_player"
           "starship"
           "tmux"
