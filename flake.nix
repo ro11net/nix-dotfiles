@@ -15,6 +15,18 @@
   let
     username = "chrisrolland";
 
+    # Third-party Homebrew taps whose formulae we install. Homebrew 7 refuses to
+    # load formulae from an untrusted tap, so trust is declared here, in review,
+    # and applied before `brew bundle` runs. Add a tap here when you add formulae
+    # from it. (FelixKratz/formulae is tapped but provides no formulae we use.)
+    trustedTaps = [
+      "fluxcd/tap"
+      "hashicorp/tap"
+      "infisical/get-cli"
+      "siderolabs/tap"
+      "stripe/stripe-cli"
+    ];
+
     mkSystem = hostname: nix-darwin.lib.darwinSystem {
       system = "aarch64-darwin";
       modules = [
@@ -28,7 +40,19 @@
       ];
     };
 
-    configuration = hostname: { pkgs, ... }: {
+    configuration = hostname: { pkgs, config, lib, ... }: {
+      # Runs as root before the Homebrew step. Invoked the same way nix-darwin
+      # invokes `brew bundle` (sudo --user --set-home), so trust lands in the same
+      # ~/.homebrew/trust.json that bundle reads; a trust file written from an
+      # interactive shell with XDG_CONFIG_HOME set goes to a different place.
+      system.activationScripts.preActivation.text = ''
+        if [ -x "${config.homebrew.brewPrefix}/brew" ]; then
+          sudo --user=${username} --set-home \
+            ${config.homebrew.brewPrefix}/brew trust --tap ${lib.concatStringsSep " " trustedTaps} \
+            || echo >&2 "warning: could not record Homebrew tap trust"
+        fi
+      '';
+
       environment.systemPackages = with pkgs;
         [
           sshs
